@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import path from 'path';
-
+import cors from 'cors';
 // Import routes
 import userRoutes from './Routes/user.route.js';
 import authRoutes from './Routes/auth.route.js';
@@ -22,6 +22,13 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+app.ude(cors({
+  origin: 'https://codel.delsu.edu.ng',
+  credentials: true
+}))
+
+
+
 // API routes
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
@@ -35,7 +42,7 @@ app.use('/api/post', postRoutes);
 
 // Static + Catch-all
 // const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.resolve()
+// const __dirname = path.resolve()
 
 
 // // Serve static files
