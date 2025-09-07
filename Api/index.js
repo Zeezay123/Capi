@@ -22,7 +22,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.ude(cors({
+app.use(cors({
   origin: 'https://codel.delsu.edu.ng',
   credentials: true
 }))
